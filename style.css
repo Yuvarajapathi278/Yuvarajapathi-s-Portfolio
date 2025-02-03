@@ -12,7 +12,7 @@
 }
 
 body {
-    background: #000000;
+    background: #000000; /* Dark black color */
     height: 100vh;
 }
 
@@ -72,12 +72,6 @@ html {
         transform: translateX(0);
         opacity: 1;
     }
-}
-
-#menu {
-    color: #fff;
-    font-size: 2.5rem;
-    display: none;
 }
 
 .navbar a {
@@ -166,7 +160,7 @@ section {
 
 @keyframes textSlide {
     0%, 10%, 100% {
-        background-position: -33rem 0;
+ background-position: -33rem 0;
     }
     65%, 85% {
         background-position: 0 0;
@@ -183,7 +177,7 @@ section {
     border-right: 2px solid #ff00ee;
     transform: translateY(-100px);
     opacity: 0;
-    animation: CursorSlide 6s linear infinite, TopSlide  1s ease forwards;
+    animation: CursorSlide 6s linear infinite, TopSlide 1s ease forwards;
     animation-delay: 2s, 1.2s;
 }
 
@@ -343,7 +337,7 @@ i:hover::after {
     filter: drop-shadow(0 0 8rem #ff00ee);
     animation: Scale 1s ease forwards;
     scale: 0;
-    animation-delay:  2s;
+    animation-delay: 2s;
 }
 
 @keyframes Scale {
@@ -373,7 +367,7 @@ i:hover::after {
     text-align: center;
     transform: translateY(-100px);
     opacity: 0;
-    animation: top 1s ease forwards;
+    animation: top 1 s ease forwards;
 }
 
 @keyframes top {
@@ -570,7 +564,7 @@ section.start-animation .column h2 {
 }
 
 .progress-value {
-    position: relative;
+ position: relative;
     font-size: 20px;
     font-weight: bold;
     color: #00ffcc; /* Neon color for text */
@@ -774,45 +768,70 @@ footer i {
     }
 }
 
-/* Video Styling */
+/* Container for the video */
 .video-container {
-    position: relative; /* Position relative to allow absolute positioning of children */
-    width: 240%; /* Full width */
-    height: 250%; /* Full height */
-    overflow: hidden; /* Hide overflow */
+    position: absolute; /* Positioning it absolutely */
+    top: 50%; /* Center vertically */
+    right: 0; /* Align to the right */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    width: 50%; /* Adjust width as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure it is above the background */
 }
 
+/* Styling for the video */
 .video-container video {
-    position: absolute; /* Position absolute to fill the container */
-    top: 0;
-    left: 0;
-    width: 150%; /* Full width */
-    height: 250%; /* Full height */
-    object-fit: cover; /* Cover the entire container */
-    opacity: 0.5; /* Adjust opacity for transparency */
-    z-index: 1; /* Ensure it's below the rain */
+    width: 100%; /* Make video fill the container */
+    height: auto; /* Maintain aspect ratio */
+    background: transparent; /* Ensure background is transparent */
 }
-
-/* Rain Animation */
-.rain-container {
-    position: fixed; /* Fixed to cover the entire viewport */
+/* Container for the background video */
+.bg-video-container {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: 2; /* Ensure it's above the video */
-    overflow: hidden;
-}
-
-/* Additional Styles for Rain Effect */
-.raindrop {
-    position: absolute;
-    width: 2px;
-    height: 50px;
-    background: linear-gradient(to bottom, rgba(0, 255, 255, 0.8), rgba(0, 255, 255, 0));
-    animation: fall 5s linear infinite;
-}
-
+    height: 100%;
+    z-index: -1; /* Ensure it is behind the navigation and content */
+  }
+  
+  /* Styling for the video */
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Container for the content */
+  .content {
+    position: relative;
+    z-index: 1; /* Ensure it is above the video */
+    color: white;
+    padding: 20px;
+  }
+  
+  /* Styling for the navigation */
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Styling for the sections */
+  section {
+    margin-top: 50px;
+  }
 @keyframes fall {
     to {
         transform: translateY(100vh);
