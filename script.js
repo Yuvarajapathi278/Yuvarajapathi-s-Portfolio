@@ -67,6 +67,15 @@ setInterval(() => {
     titleElement.textContent = titles[index];
     index = (index + 1) % titles.length;
 }, 3000);
+// JavaScript to handle page visibility change
+document.addEventListener("visibilitychange", function() {
+    const video = document.querySelector(".video-container video");
+    if (document.hidden) {
+        video.pause(); // Pause video when the page is not visible
+    } else {
+        video.play(); // Play video when the page is visible again
+    }
+});
 
 // Wavy text animation
 const wavyText = document.querySelector('.wavy-text');
@@ -79,25 +88,3 @@ function animateWavyText() {
 }
 
 setInterval(animateWavyText, 5000);
-
-// Raindrop animation
-const rainContainer = document.querySelector('.rain-container');
-
-function createRaindrop() {
-    const raindrop = document.createElement('div');
-    raindrop.classList.add('raindrop');
-    raindrop.style.left = `${Math.random() * 100}vw`;
-    raindrop.style.animationDuration = `${Math.random() * 1 + 1}s`;
-    rainContainer.appendChild(raindrop);
-
-    // Remove the raindrop after it falls off the screen
-    setTimeout(() => {
-        raindrop.remove();
-    }, 2000);
-}
-
-function startRain() {
-    setInterval(createRaindrop, 50);
-}
-
-startRain();
