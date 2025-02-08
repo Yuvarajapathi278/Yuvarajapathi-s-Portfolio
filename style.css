@@ -767,11 +767,82 @@ footer i {
         height: 20rem;
     }
 }
+/* General styling */
+.MyProjects {
+    text-align: center;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    position: relative;
+    width: 100%; /* Adjust width to fill container */
+    max-width: 1100px; /* Extended width */
+    height: 200px; /* Rectangular shape */
+    perspective: 1000px;
+    cursor: pointer;
+    background: transparent; /* Transparent background */
+    border: 14px solid; /* Bolder border */
+    border-image: linear-gradient(45deg, #2600ff, #000000, #800080) 1;
+    padding: 4px;
+}
+
+.project-card div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1.8em; /* Larger text */
+    color: #fff; /* Adjust text color as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-front, .project-back {
+    background: linear-gradient(45deg, #8c00ff, #000000, #800080); /* Gradient background */
+}
+
+.project-front h2, .project-back h2 {
+    margin-top: 0;
+    font-size: 1.2em; /* Adjust title size */
+    text-align: center;
+}
+
+.project-front p, .project-back p {
+    font-size: 0.8em; /* Adjust description size */
+    text-align: center; /* Center align text */
+}
+
+.project-card:hover .project-front {
+    transform: rotateY(-180deg);
+}
+
+.project-card:hover .project-back {
+    transform: rotateY(0deg);
+}
+
+.project-front {
+    transform: rotateY(0deg);
+}
+
+.project-back {
+    transform: rotateY(180deg);
+}
 
 /* Container for the video */
 .video-container {
     position: absolute; /* Positioning it absolutely */
-    top: 50%; /* Center vertically */
+    top: 60%; /* Move the video slightly lower */
     right: 0; /* Align to the right */
     transform: translateY(-50%); /* Adjust for vertical centering */
     width: 50%; /* Adjust width as needed */
@@ -787,6 +858,24 @@ footer i {
     height: auto; /* Maintain aspect ratio */
     background: transparent; /* Ensure background is transparent */
 }
+
+/* For mobile view */
+@media (max-width: 768px) {
+    .video-container {
+        position: relative; /* Relative positioning for mobile */
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 100%; /* Full width for mobile */
+    }
+
+    .video-container video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
 /* Container for the background video */
 .bg-video-container {
     position: fixed;
