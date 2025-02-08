@@ -67,15 +67,19 @@ setInterval(() => {
     titleElement.textContent = titles[index];
     index = (index + 1) % titles.length;
 }, 3000);
-// JavaScript to handle page visibility change
 document.addEventListener("visibilitychange", function() {
-    const video = document.querySelector(".video-container video");
-    if (document.hidden) {
-        video.pause(); // Pause video when the page is not visible
-    } else {
+    const video = document.getElementById("myVideo");
+    if (!document.hidden) {
         video.play(); // Play video when the page is visible again
     }
 });
+
+// Ensure the video continues to play when navigating back
+window.addEventListener("pageshow", function() {
+    const video = document.getElementById("myVideo");
+    video.play(); // Play video when the page is shown again
+});
+
 
 // Wavy text animation
 const wavyText = document.querySelector('.wavy-text');
