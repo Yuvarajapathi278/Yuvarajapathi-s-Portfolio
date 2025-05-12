@@ -59,7 +59,7 @@ document.querySelectorAll('.circular-progress').forEach(progress => {
 });
 
 // Rotating titles
-const titles = ["Aspiring Software Developer", "Aspiring Software Engineer", "Aspiring Associate Software Developer"];
+const titles = ["Aspiring Software Developer", "Aspiring Software Engineer", "Java Developer"];
 let index = 0;
 const titleElement = document.getElementById("title");
 
