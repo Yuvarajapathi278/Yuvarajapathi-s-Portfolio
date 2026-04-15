@@ -23,7 +23,7 @@ const projects = [
     title: 'Women Safety Localisation',
     description: 'An advanced safety ecosystem leveraging iBeacon technology for precise indoor/outdoor localization. Integrates real-time Google Maps tracking and hardware sensors for instantaneous emergency broadcasting.',
     tech: ['Android Studio', 'iBeacon', 'Google Maps API', 'MySQL', 'Hardware Sensors'],
-    demo: '#',
+    demo: '', // Removed link
     github: '#',
     device: 'mobile',
     imageSrc: womenSafetyImage,
@@ -35,7 +35,7 @@ const projects = [
     title: 'Enterprise Employee Management',
     description: 'A robust, full-stack HR management system. Engineered with secure CRUD operations, complex relational data persistence, and a highly optimized Spring Boot backend for seamless organizational scaling.',
     tech: ['Spring Boot', 'Java', 'MySQL', 'REST API', 'HTML/CSS'],
-    demo: '#',
+    demo: '', // Removed link
     github: '#',
     device: 'desktop',
     mockupIcon: Users,
@@ -266,17 +266,21 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      <div className="flex gap-4 relative z-30">
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-2 py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-xl text-sm font-bold transition-colors"
-                        >
-                          <ExternalLink size={18} />
-                          App Link
-                        </a>
-                      </div>
+                      {/* CONDITIONAL RENDER: Only show button if a demo link exists */}
+                      {project.demo && (
+                        <div className="flex gap-4 relative z-30">
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 flex items-center justify-center gap-2 py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-xl text-sm font-bold transition-colors"
+                          >
+                            <ExternalLink size={18} />
+                            App Link
+                          </a>
+                        </div>
+                      )}
+                      
                     </div>
                   </div>
                 </div>
