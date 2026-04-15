@@ -17,7 +17,8 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Left - Resume Button */}
         <a
-          href="/YUVARAJAPATHI_V_Resume.pdf"
+          // UPDATED: Exact match to your filename
+          href="/Yuvarajapathi V_Resume.pdf"
           download
           className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 border border-white/18 rounded-lg font-medium transition-all duration-300 hover:scale-105 glass shake-animation"
         >
@@ -70,7 +71,8 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="/YUVARAJAPATHI_V_Resume.pdf"
+              // UPDATED: Exact match to your filename for mobile
+              href="/Yuvarajapathi V_Resume.pdf"
               download
               className="flex items-center gap-2 px-3 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 border border-white/18 rounded-lg font-medium transition-all w-fit glass shake-animation"
             >
