@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { Zap, BookOpen, Briefcase, Trophy } from 'lucide-react'
+import { FaJava, FaServer } from 'react-icons/fa'
+import { SiFirebase, SiHtml5, SiKotlin, SiMysql, SiOpenai, SiReact } from 'react-icons/si'
 
 const professionalExp = [
   {
@@ -38,15 +40,17 @@ const achievements = [
 ]
 
 const skills = [
-  { name: 'Java', description: 'Proficient in Java, OOPs concepts, Collections Framework, and backend development.' },
-  { name: 'Firebase', description: 'Backend-as-a-Service integration including authentication, Firestore, and cloud functions.' },
-  { name: 'React', description: 'Building modern, responsive, and interactive frontend web applications.' },
-  { name: 'Kotlin', description: 'Developing robust native Android applications with modern architecture.' },
-  { name: 'APIs & System Design', description: 'Designing scalable architectures and building efficient RESTful APIs.' },
-  { name: 'AI Models', description: 'Integrating and working with modern AI models for intelligent application features.' },
-  { name: 'MySQL', description: 'Database design, complex SQL queries, and efficient database management.' },
-  { name: 'HTML & CSS', description: 'Structuring and styling responsive web layouts.' }
+  { name: 'Java', icon: FaJava, description: 'Proficient in Java, OOPs concepts, Collections Framework, and backend development.' },
+  { name: 'Firebase', icon: SiFirebase, description: 'Backend-as-a-Service integration including authentication, Firestore, and cloud functions.' },
+  { name: 'React', icon: SiReact, description: 'Building modern, responsive, and interactive frontend web applications.' },
+  { name: 'Kotlin', icon: SiKotlin, description: 'Developing robust native Android applications with modern architecture.' },
+  { name: 'APIs & System Design', icon: FaServer, description: 'Designing scalable architectures and building efficient RESTful APIs.' },
+  { name: 'AI Models', icon: SiOpenai, description: 'Integrating and working with modern AI models for intelligent application features.' },
+  { name: 'MySQL', icon: SiMysql, description: 'Database design, complex SQL queries, and efficient database management.' },
+  { name: 'HTML & CSS', icon: SiHtml5, description: 'Structuring and styling responsive web layouts.' }
 ]
+
+const ideTools = ['Cursor', 'VS Code', 'Android Studio', 'Eclipse']
 
 export default function Experience() {
   return (
@@ -159,7 +163,10 @@ export default function Experience() {
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 className="glass border border-white/10 rounded-lg p-5 flex flex-col justify-between hover:border-cyan-500/50 transition-colors"
               >
-                <h4 className="text-lg font-bold text-cyan-400 mb-2">{skill.name}</h4>
+                <div className="flex items-center gap-2 mb-2">
+                  <skill.icon className="w-5 h-5 text-cyan-400" />
+                  <h4 className="text-lg font-bold text-cyan-400">{skill.name}</h4>
+                </div>
                 <p className="text-gray-500 text-xs leading-snug">{skill.description}</p>
               </motion.div>
             ))}
@@ -176,7 +183,7 @@ export default function Experience() {
               <p className="text-gray-400 text-sm">Engineered for efficiency and clean architecture.</p>
             </div>
             <div className="flex gap-3 flex-wrap justify-center">
-              {['Cursor', 'VS Code', 'Android Studio', 'Eclipse'].map((tool) => (
+              {ideTools.map((tool) => (
                 <span key={tool} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-sm font-mono">
                   {tool}
                 </span>
